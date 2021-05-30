@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
+import SuperHeader, { DecorativeLine } from "../SuperHeader";
 import MobileMenu from '../MobileMenu';
 
 const Header = () => {
@@ -16,6 +16,7 @@ const Header = () => {
 
   return (
     <header>
+      <DecorativeLine />
       <SuperHeader />
       <MainHeader>
         <Side>
