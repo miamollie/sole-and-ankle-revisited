@@ -6,9 +6,7 @@ import Logo from "../Logo";
 import SuperHeader, { DecorativeLine } from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
 
-import UnstyledButton from "../UnstyledButton";
-import Icon from "../Icon";
-import VisuallyHidden from "../VisuallyHidden";
+import IconButton from "../IconButton";
 
 const Header = () => {
   return (
@@ -39,14 +37,16 @@ function MobileNav() {
 
   return (
     <MobileNavWrapper>
-      <UnstyledButton onClick={() => console.log("open!")}>
-        <Icon id="shopping-bag" />
-        <VisuallyHidden>View basket</VisuallyHidden>
-      </UnstyledButton>
-      <UnstyledButton onClick={() => console.log("open!")}>
-        <Icon id="search" />
-        <VisuallyHidden>Search</VisuallyHidden>
-      </UnstyledButton>
+      <IconButton
+        icon="shopping-bag"
+        label="View Basket"
+        onClick={() => console.log("open!")}
+      />
+      <IconButton
+        icon="search"
+        label="Search"
+        onClick={() => console.log("open!")}
+      />
       <MobileMenu
         onOpen={() => setShowMobileMenu(true)}
         isOpen={showMobileMenu}

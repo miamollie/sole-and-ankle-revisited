@@ -5,18 +5,11 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 
 import { QUERIES } from "../../constants";
 
-import UnstyledButton from "../UnstyledButton";
-import Icon from "../Icon";
-import VisuallyHidden from "../VisuallyHidden";
+import IconButton from "../IconButton";
 
 const MobileMenu = ({ isOpen, onDismiss, onOpen }) => {
   if (!isOpen) {
-    return (
-      <UnstyledButton onClick={onOpen}>
-        <Icon id="menu" />
-        <VisuallyHidden>View menu</VisuallyHidden>
-      </UnstyledButton>
-    );
+    return <IconButton icon="menu" label="View menu" onClick={onOpen} />;
   }
 
   return (
