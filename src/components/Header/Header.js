@@ -1,19 +1,16 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import Logo from '../Logo';
+import { COLORS, WEIGHTS, QUERIES } from "../../constants";
+import Logo from "../Logo";
 import SuperHeader, { DecorativeLine } from "../SuperHeader";
-import MobileMenu from '../MobileMenu';
+import MobileMenu from "../MobileMenu";
+
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
-
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <DecorativeLine />
@@ -31,15 +28,41 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
+        <MobileNav />
       </MainHeader>
-
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
     </header>
   );
 };
+
+function MobileNav() {
+  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+
+  return (
+    <MobileNavWrapper>
+      <UnstyledButton onClick={() => console.log("open!")}>
+        <Icon id="shopping-bag" />
+        <VisuallyHidden>View basket</VisuallyHidden>
+      </UnstyledButton>
+      <UnstyledButton onClick={() => console.log("open!")}>
+        <Icon id="search" />
+        <VisuallyHidden>Search</VisuallyHidden>
+      </UnstyledButton>
+      <MobileMenu
+        onOpen={() => setShowMobileMenu(true)}
+        isOpen={showMobileMenu}
+        onDismiss={() => setShowMobileMenu(false)}
+      />
+    </MobileNavWrapper>
+  );
+}
+
+const MobileNavWrapper = styled.nav`
+  display: none;
+  gap: 16px;
+  @media ${QUERIES.laptopAndUnder} {
+    display: flex;
+  }
+`;
 
 const MainHeader = styled.div`
   display: flex;
@@ -53,6 +76,9 @@ const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+  @media ${QUERIES.laptopAndUnder} {
+    display: none;
+  }
 `;
 
 const Side = styled.div`
