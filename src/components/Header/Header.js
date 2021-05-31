@@ -70,6 +70,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
   @media ${QUERIES.laptopAndUnder} {
     padding: 16px 24px;
   }
@@ -77,7 +78,7 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 9vw - 4.2rem, 3.5rem);
   margin: 0px 48px;
   @media ${QUERIES.laptopAndUnder} {
     display: none;
