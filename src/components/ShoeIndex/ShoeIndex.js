@@ -23,14 +23,16 @@ const ShoeIndex = ({ sortId, setSortId }) => {
 
         <Header>
           <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <HiddenMobile>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
+          </HiddenMobile>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -52,6 +54,12 @@ const HiddenDesktop = styled.div`
   display: none;
   @media ${QUERIES.laptopAndUnder} {
     display: block;
+  }
+`;
+const HiddenMobile = styled.div`
+  display: block;
+  @media ${QUERIES.laptopAndUnder} {
+    display: none;
   }
 `;
 
