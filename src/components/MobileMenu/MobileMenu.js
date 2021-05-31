@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import styled from "styled-components/macro";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
-
-import { COLORS } from "../../constants";
 
 import IconButton from "../IconButton";
 
@@ -40,7 +37,7 @@ export default MobileMenu;
 
 const FooterLink = styled.a`
   text-decoration: none;
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   font-size: 16px;
 
   &:hover {
@@ -58,11 +55,11 @@ const Footer = styled.footer`
 const NavLink = styled.a`
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-size: 18px;
 
   &:hover {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
